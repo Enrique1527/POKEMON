@@ -34,7 +34,7 @@ function Pokedex() {
     setFilteredPokemonList(filteredList);
 
     if (filteredList.length === 1) {
-      // If there is only one matching Pokémon, get its details
+      
       getPokemonDetails(filteredList[0]);
     } else {
       setSelectedPokemon(null);
