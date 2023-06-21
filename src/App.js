@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Pokedex.css';
+import imagen from './imagen.png';
 
 function Pokedex() {
   const [pokemonList, setPokemonList] = useState([]);//lista de pokemon
@@ -79,9 +80,8 @@ function Pokedex() {
   return (
     <div className="pokemon-background">
       <div className="title-container">
-        <h1 style={{ fontFamily: 'Andrea' }}>
-          Pokedex
-        </h1>
+      <img src={imagen} alt="Imagen" className="logo-image" />
+        
       </div>
       <div className="search-container">
         <input
@@ -212,13 +212,17 @@ function Pokedex() {
         </div>
       </div>
 
+      <div className="pokemon-list-container">
       <ul>
+      <li><h2>Selecciona un pokemon</h2> </li>
         {filteredPokemonList.map((pokemon) => (
+          
           <li key={pokemon.name} onClick={() => getPokemonDetails(pokemon)}>
             {pokemon.name}
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }

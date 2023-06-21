@@ -3,7 +3,25 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
+.logo-image {
+    width: 40%;
+    height: 10%;
+  }
+
+  .pokemon-list-container {
+    height: 500px; /* Ajusta la altura deseada */
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 55%;
+    margin: 40px auto;
+    background-color: #fbd74e;
+  }
+  
+
 /*Imagen del pokemon*/
 .pokemon-sprite-container {
   width: 256px;
@@ -30,9 +48,9 @@ en el contenedor*/
 /*Al input buscar donde se ingresa la busqueda estilos como
 alto y ancho*/
 .search-input {
-  width: 300px;
+  width: 70%;
   border-radius: 20px;
-  height: 35px;
+  height: 55px;
 }
 /*contenedor de titulo*/
 .title-container {
@@ -43,8 +61,8 @@ alto y ancho*/
 /* Se da un fondo a la pantalla con degradado*/
 .pokemon-background {
   background: linear-gradient(135deg, #fcd06e, #fb8b30);
-  background-repeat: no-repeat;
-  background-size: cover;
+  
+  min-height: 100%;
 }
 
 /*Estilos al contenedor de la tabla como ajustarse a la
@@ -79,7 +97,7 @@ pantalla de mximo 600px*/
       flex-direction: column;
       background-color: #f2f2f2; /* Color de fondo de la tabla */
       border-radius: 10px;
-      padding: 10px;
+      padding: 5px;
     }
     
     .table-row {
@@ -89,7 +107,7 @@ pantalla de mximo 600px*/
     .table-cell {
       flex: 1;
       border: 1px solid black;
-      padding: 5px;
+      padding: 10px;
     }
     /*Se oculta la tabla que deberia aparecer solo en 
     dispositivos de escritorio*/
@@ -103,7 +121,7 @@ pantalla de mximo 600px*/
     /*Se quitan los estilos de lista para que aparezca sin viñetas*/
     .table-mobile ul {
         list-style-type: none;
-        padding: 0;
+        padding: 10px;
         margin: 0;
       }
   }
