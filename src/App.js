@@ -3,13 +3,15 @@ import axios from 'axios';
 import './Pokedex.css';
 
 function Pokedex() {
-  const [pokemonList, setPokemonList] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredPokemonList, setFilteredPokemonList] = useState([]);
-  const [selectedPokemon, setSelectedPokemon] = useState(null);
-  const [pokemonSprite, setPokemonSprite] = useState(null);
-  const [abilityEffect, setAbilityEffect] = useState('');
+  const [pokemonList, setPokemonList] = useState([]);//lista de pokemon
+  const [searchTerm, setSearchTerm] = useState('');//El pokemon que se busca 
+  const [filteredPokemonList, setFilteredPokemonList] = useState([]);//para filtrar en base a la busqueda
+  const [selectedPokemon, setSelectedPokemon] = useState(null);//almecena el pokemon seleccionado
+  const [pokemonSprite, setPokemonSprite] = useState(null);//almacena la imagen del pokemos seleccionado
+  const [abilityEffect, setAbilityEffect] = useState('');//Habilidades efecto del pokemon seleccionado
 
+
+  //realiza una peticion a la API, trae una lista de 1000 pokemones 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,6 +26,9 @@ function Pokedex() {
     fetchData();
   }, []);
 
+
+  //Se trae el termino buscado, convierte a miniuscula, 
+  //actualiza la lista dependiendo de la entrada
   const handleSearch = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     setSearchTerm(searchTerm);
@@ -43,6 +48,7 @@ function Pokedex() {
     }
   };
 
+  //recibe el nombre del pokemon mediante url 
   const getPokemonDetails = async (pokemon) => {
     try {
       const response = await axios.get(pokemon.url);
@@ -57,6 +63,8 @@ function Pokedex() {
     }
   };
 
+
+  //Se utiliza para obtener el efecto de la hanilidad del pokemon seleccionado
   const getAbilityEffect = async (abilityUrl) => {
     try {
       const response = await axios.get(abilityUrl);
@@ -67,6 +75,7 @@ function Pokedex() {
     }
   };
 
+  //aqui empieza la parte de visual
   return (
     <div className="pokemon-background">
       <div className="title-container">
@@ -88,6 +97,7 @@ function Pokedex() {
           <img src={pokemonSprite} alt="Pokemon Sprite" className="pokemon-sprite" />
         </div>
       )}
+      
       <div className="table-container">
         <table className="table-desktop">
           <thead>
